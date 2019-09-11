@@ -191,7 +191,6 @@
             this.Nozzle_Id.Name = "Nozzle_Id";
             this.Nozzle_Id.Size = new System.Drawing.Size(100, 20);
             this.Nozzle_Id.TabIndex = 5;
-            this.Nozzle_Id.TextChanged += new System.EventHandler(this.Nozzle_Id_TextChanged);
             this.Nozzle_Id.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedShowEvents);
             // 
             // label5
