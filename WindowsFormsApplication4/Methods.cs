@@ -92,9 +92,9 @@ namespace WindowsFormsApplication4
             {
                 try
                 {
-                    for (int i = 1; i <= 50; i++)
+                    Con.Open();
+                    for (int i = 1; i <= 500; i++)
                     {
-                        Con.Open();
                         var sendCom = $@"select top 1 DateOfEvent 
                                         from EventLog
                                         where EventName = 'Line' and Nozzle_Id = '{i}'
@@ -115,8 +115,9 @@ namespace WindowsFormsApplication4
                             }
                         }
 
-                        Con.Close();
+                        
                     }
+                    Con.Close();
 
                 }
                 catch (Exception e)

@@ -62,17 +62,22 @@ namespace WindowsFormsApplication4
                     ConfirmCreate.Items.Add("Please enter a valid nozzle id");
                 }
             }
-            else
+            else if(!Int32.TryParse(NozzleId.Text, out value))
             {
                 ConfirmCreate.Items.Clear();
                 NozzleId.Text = "";
-                ConfirmCreate.Items.Add("Please enter a valid nozzle id");
+                ConfirmCreate.Items.Add("Please enter a valid nozzle id and");
+            }
+            else if (Events.SelectedItem == null)
+            {
+                ConfirmCreate.Items.Clear();
+                ConfirmCreate.Items.Add("Please enter an event");
             }
 
-            
 
-        
-    }
+
+
+        }
         //Create Button
         private void Create_Click(object sender, EventArgs e)
         {
