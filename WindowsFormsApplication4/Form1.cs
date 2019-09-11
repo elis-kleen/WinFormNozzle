@@ -42,10 +42,12 @@ namespace WindowsFormsApplication4
         void create()
         {
             int value = 0;
-            value = Int32.Parse(NozzleId.Text);
-            if (methods.NozzleExist(value))
+            
+            
+            if (Int32.TryParse(NozzleId.Text, out value) && Events.SelectedItem != null)
             {
-                if (Int32.TryParse(NozzleId.Text, out value) && Events.SelectedItem != null)
+                value = Int32.Parse(NozzleId.Text);
+                if (methods.NozzleExist(value))
                 {
                     ConfirmCreate.Items.Clear();
 
@@ -53,14 +55,15 @@ namespace WindowsFormsApplication4
                     NozzleId.Text = "";
                     ConfirmCreate.Items.Add("Event created");
                 }
+                else
+                {
+                    ConfirmCreate.Items.Clear();
+                    NozzleId.Text = "";
+                    ConfirmCreate.Items.Add("Please enter a valid nozzle id");
+                }
             }
 
-            else
-            {
-                ConfirmCreate.Items.Clear();
-                NozzleId.Text = "";
-                ConfirmCreate.Items.Add("Please enter a valid nozzle id");
-            }
+            
 
         
     }

@@ -29,7 +29,6 @@ namespace WindowsFormsApplication4
                 }
                 catch (Exception e1)
                 {
-                    Console.WriteLine(e1.ToString());
                 }
 
 
@@ -74,7 +73,7 @@ namespace WindowsFormsApplication4
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    return e.ToString();
                 }
             }
             return rowAsString;
