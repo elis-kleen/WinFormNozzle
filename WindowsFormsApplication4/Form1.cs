@@ -43,13 +43,23 @@ namespace WindowsFormsApplication4
         private void Create_Click(object sender, EventArgs e)
         {
             int value = 0;
-            if (Int32.TryParse(NozzleId.Text, out value) && Events.SelectedItem != null)
+            value = Int32.Parse(NozzleId.Text);
+            if (methods.NozzleExist(value))
+            {
+                 if (Int32.TryParse(NozzleId.Text, out value) && Events.SelectedItem != null)
+                            {
+                                ConfirmCreate.Items.Clear();
+                
+                                methods.EventLog(Events.SelectedItem.ToString(), Decimal.ToInt32(value), DatePicker.Value);
+                                NozzleId.Text = "";
+                                ConfirmCreate.Items.Add("Event created");
+                             }
+            }
+            
+           else
             {
                 ConfirmCreate.Items.Clear();
-                value = Int32.Parse(NozzleId.Text);
-                methods.EventLog(Events.SelectedItem.ToString(), Decimal.ToInt32(value), DatePicker.Value);
-                NozzleId.Text = "";
-                ConfirmCreate.Items.Add("Event created");
+                ConfirmCreate.Items.Add("Please enter a valid nozzle id");
             }
 
         }
@@ -58,15 +68,25 @@ namespace WindowsFormsApplication4
             if (key.KeyCode.Equals(Keys.Return))
             {
                 int value = 0;
-                if (Int32.TryParse(NozzleId.Text, out value) && Events.SelectedItem != null)
+                value = Int32.Parse(NozzleId.Text);
+                if (methods.NozzleExist(value))
+                {
+                    if (Int32.TryParse(NozzleId.Text, out value) && Events.SelectedItem != null)
+                    {
+                        ConfirmCreate.Items.Clear();
+
+                        methods.EventLog(Events.SelectedItem.ToString(), Decimal.ToInt32(value), DatePicker.Value);
+                        NozzleId.Text = "";
+                        ConfirmCreate.Items.Add("Event created");
+                    }
+                }
+
+                else
                 {
                     ConfirmCreate.Items.Clear();
-                    value = Int32.Parse(NozzleId.Text);
-                    methods.EventLog(Events.SelectedItem.ToString(), Decimal.ToInt32(value), DatePicker.Value);
-                    NozzleId.Text = "";
-                    ConfirmCreate.Items.Add("Event created");
-
+                    ConfirmCreate.Items.Add("Please enter a valid nozzle id");
                 }
+
             }
         }
         //date of event selection

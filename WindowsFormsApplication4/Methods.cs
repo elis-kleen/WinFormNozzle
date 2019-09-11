@@ -14,7 +14,7 @@ namespace WindowsFormsApplication4
     class Methods
     {
         Form form = new Form();
-        public void EventLog( string EventName, int Nozzle_Id, DateTime DateAndTime)
+        public void EventLog(string EventName, int Nozzle_Id, DateTime DateAndTime)
         {
 
             string conStr = "Data Source=.;Initial Catalog=NozzleTest;Integrated Security=True";
@@ -23,9 +23,9 @@ namespace WindowsFormsApplication4
                 Con.Open();
                 try
                 {
-                        var sendCom = $"insert into  EventLog(Nozzle_Id, EventName, DateOfEvent) values  ('{Nozzle_Id}', '{EventName}', '{DateAndTime}')";
-                        var Command = new SqlCommand(sendCom, Con);
-                        var result = Command.ExecuteScalar();
+                    var sendCom = $"insert into  EventLog(Nozzle_Id, EventName, DateOfEvent) values  ('{Nozzle_Id}', '{EventName}', '{DateAndTime}')";
+                    var Command = new SqlCommand(sendCom, Con);
+                    var result = Command.ExecuteScalar();
                 }
                 catch (Exception e1)
                 {
@@ -78,13 +78,13 @@ namespace WindowsFormsApplication4
                 }
             }
             return rowAsString;
-            
+
         }
 
         public string CheckForChange(DateTime dateCheck)
         {
 
-            
+
             bool NoChangesNeeded = true;
             string returnString = "";
 
@@ -118,19 +118,48 @@ namespace WindowsFormsApplication4
 
                         Con.Close();
                     }
-                    
+
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
                 }
                 if (NoChangesNeeded)
-                        return "No changes needed";
-                    else
-                        return returnString;
+                    return "No changes needed";
+                else
+                    return returnString;
 
             }
 
+        }
+        public bool NozzleExist(int NozzleId)
+        {
+
+            string conStr = "Data Source=.;Initial Catalog=NozzleTest;Integrated Security=True";
+            using (var Con = new SqlConnection(conStr))
+            {
+                Con.Open();
+                try
+                {
+                    var sendCom = $@"  select * from [NozzleTest].[dbo].[NozzleTable] 
+                                       where
+                                       Nozzle_Id = '{NozzleId}' ";
+                    var Command = new SqlCommand(sendCom, Con);
+                    var reader = Command.ExecuteReader();
+
+                    if (!reader.HasRows)
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    return false;
+                }
+            }
         }
     }
 }
