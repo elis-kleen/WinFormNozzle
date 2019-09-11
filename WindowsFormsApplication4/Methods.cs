@@ -23,12 +23,9 @@ namespace WindowsFormsApplication4
                 Con.Open();
                 try
                 {
-
                         var sendCom = $"insert into  EventLog(Nozzle_Id, EventName, DateOfEvent) values  ('{Nozzle_Id}', '{EventName}', '{DateAndTime}')";
                         var Command = new SqlCommand(sendCom, Con);
                         var result = Command.ExecuteScalar();
-
-
                 }
                 catch (Exception e1)
                 {
@@ -80,8 +77,6 @@ namespace WindowsFormsApplication4
                     Console.WriteLine(e.ToString());
                 }
             }
-
-            // rowAsString.Split(',');
             return rowAsString;
             
         }
