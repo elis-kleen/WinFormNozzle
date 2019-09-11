@@ -129,7 +129,7 @@ namespace WindowsFormsApplication4
 
         private void NozzleId_TextChanged(object sender, EventArgs e)
         {
-            ConfirmCreate.Items.Clear();
+            ConfirmCreate.Items.Clear(); 
         }
     }
 }
