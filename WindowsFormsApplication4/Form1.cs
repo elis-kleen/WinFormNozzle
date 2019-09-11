@@ -58,6 +58,7 @@ namespace WindowsFormsApplication4
             else
             {
                 ConfirmCreate.Items.Clear();
+                NozzleId.Text = "";
                 ConfirmCreate.Items.Add("Please enter a valid nozzle id");
             }
 
@@ -94,6 +95,7 @@ namespace WindowsFormsApplication4
                 else
                 {
                     listBox1.Items.Clear();
+                    Nozzle_Id.Text = "";
                     listBox1.Items.Add("Please enter a valid nozzle id");
                 }
 
@@ -129,7 +131,7 @@ namespace WindowsFormsApplication4
 
         private void NozzleId_TextChanged(object sender, EventArgs e)
         {
-            ConfirmCreate.Items.Clear(); 
+            ConfirmCreate.Items.Clear();
         }
     }
 }
