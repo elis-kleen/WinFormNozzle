@@ -64,7 +64,7 @@
             this.Create.Location = new System.Drawing.Point(9, 196);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(92, 25);
-            this.Create.TabIndex = 1;
+            this.Create.TabIndex = 4;
             this.Create.Text = "Create";
             this.Create.UseVisualStyleBackColor = false;
             this.Create.Click += new System.EventHandler(this.Create_Click);
@@ -90,7 +90,7 @@
             this.DatePicker.Location = new System.Drawing.Point(6, 146);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(200, 20);
-            this.DatePicker.TabIndex = 5;
+            this.DatePicker.TabIndex = 3;
             this.DatePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             this.DatePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedCreateEvent);
             // 
@@ -158,7 +158,7 @@
             this.NozzleId.Location = new System.Drawing.Point(6, 31);
             this.NozzleId.Name = "NozzleId";
             this.NozzleId.Size = new System.Drawing.Size(100, 20);
-            this.NozzleId.TabIndex = 11;
+            this.NozzleId.TabIndex = 1;
             this.NozzleId.TextChanged += new System.EventHandler(this.NozzleId_TextChanged);
             this.NozzleId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedCreateEvent);
             // 
@@ -190,7 +190,7 @@
             this.Nozzle_Id.Location = new System.Drawing.Point(12, 29);
             this.Nozzle_Id.Name = "Nozzle_Id";
             this.Nozzle_Id.Size = new System.Drawing.Size(100, 20);
-            this.Nozzle_Id.TabIndex = 5;
+            this.Nozzle_Id.TabIndex = 6;
             this.Nozzle_Id.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedShowEvents);
             // 
             // label5
@@ -211,14 +211,14 @@
             this.listBox1.Location = new System.Drawing.Point(12, 83);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(228, 147);
-            this.listBox1.TabIndex = 3;
+            this.listBox1.TabIndex = 7;
             // 
             // ShowEvents
             // 
             this.ShowEvents.Location = new System.Drawing.Point(149, 29);
             this.ShowEvents.Name = "ShowEvents";
             this.ShowEvents.Size = new System.Drawing.Size(85, 23);
-            this.ShowEvents.TabIndex = 2;
+            this.ShowEvents.TabIndex = 8;
             this.ShowEvents.Text = "Show Events";
             this.ShowEvents.UseVisualStyleBackColor = true;
             this.ShowEvents.Click += new System.EventHandler(this.button1_Click);
@@ -252,7 +252,7 @@
             this.ShowNeedChange.Location = new System.Drawing.Point(234, 44);
             this.ShowNeedChange.Name = "ShowNeedChange";
             this.ShowNeedChange.Size = new System.Drawing.Size(82, 20);
-            this.ShowNeedChange.TabIndex = 4;
+            this.ShowNeedChange.TabIndex = 10;
             this.ShowNeedChange.Text = "Show Nozzles";
             this.ShowNeedChange.UseVisualStyleBackColor = true;
             this.ShowNeedChange.Click += new System.EventHandler(this.ShowNeedChange_Click);
@@ -272,7 +272,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(9, 44);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedShowNeedChange);
             // 
             // ListBoxNeedChange
@@ -283,7 +283,7 @@
             this.ListBoxNeedChange.Location = new System.Drawing.Point(9, 117);
             this.ListBoxNeedChange.Name = "ListBoxNeedChange";
             this.ListBoxNeedChange.Size = new System.Drawing.Size(127, 108);
-            this.ListBoxNeedChange.TabIndex = 1;
+            this.ListBoxNeedChange.TabIndex = 11;
             // 
             // label6
             // 
