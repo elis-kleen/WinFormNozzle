@@ -83,6 +83,7 @@ namespace WindowsFormsApplication4
                     return e.ToString();
                 }
                 Con.Close();
+                //Returns the string with all the events for tat specific nozzle
                 return rowAsString;
             }
             
@@ -103,8 +104,10 @@ namespace WindowsFormsApplication4
                 try
                 {
                     Con.Open();
+                    //iterates through all the nozzles
                     for (int i = 1; i <= 500; i++)
                     {
+                        //gest the data of nozzle with nozzle id = i and latest event is "line"
                         var sendCom = $@"select top 1 DateOfEvent 
                                         from EventLog
                                         where EventName = 'Line' and Nozzle_Id = '{i}'
@@ -113,11 +116,14 @@ namespace WindowsFormsApplication4
                         var Command = new SqlCommand(sendCom, Con);
                         var result = Command.ExecuteScalar();
 
+                        //if the latest event for that nozzle (i) is "line" then result won´t be = null
                         if (result != null)
                         {
+                            //checks the date of that event
                             var DateOfEvent = (DateTime)result;
-                            int DaysSinceChange = DateTime.Compare(DateOfEvent, dateCheck);
-
+                            int DaysSinceChange = DateTime.Compare(DateOfEvent, dateCheck); //compare return a value depending on if the first date is before, after or the same
+                                                                                            //as the secound date
+                            //if the first date is before the secound compare will return a value less than 0                                                                                                                                                     
                             if (DaysSinceChange < 0)
                             {
                                 returnString += $"{i} needs change \n";
@@ -142,6 +148,7 @@ namespace WindowsFormsApplication4
             }
 
         }
+        //method to verify that a nozzle with the id it`s given exists
         public bool NozzleExist(int NozzleId)
         {
 
@@ -157,6 +164,8 @@ namespace WindowsFormsApplication4
                     var Command = new SqlCommand(sendCom, Con);
                     var reader = Command.ExecuteReader();
 
+                    //if the execute returns anything that means that there is a nozzle with the given id
+                    //and then the bool "reader.HasRows" will be true
                     if (!reader.HasRows)
                     {
                         return false;
