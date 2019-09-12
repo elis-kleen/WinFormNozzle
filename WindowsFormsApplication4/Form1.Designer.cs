@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Create = new System.Windows.Forms.Button();
+            this.CreateButton = new System.Windows.Forms.Button();
             this.Events = new System.Windows.Forms.ComboBox();
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,17 +58,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nozzleTestDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // Create
+            // CreateButton
             // 
-            this.Create.BackColor = System.Drawing.Color.White;
-            this.Create.Location = new System.Drawing.Point(9, 196);
-            this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(92, 25);
-            this.Create.TabIndex = 4;
-            this.Create.Text = "Create";
-            this.Create.UseVisualStyleBackColor = false;
-            this.Create.Click += new System.EventHandler(this.Create_Click);
-            this.Create.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedCreateEvent);
+            this.CreateButton.BackColor = System.Drawing.Color.White;
+            this.CreateButton.Location = new System.Drawing.Point(9, 196);
+            this.CreateButton.Name = "CreateButton";
+            this.CreateButton.Size = new System.Drawing.Size(92, 25);
+            this.CreateButton.TabIndex = 4;
+            this.CreateButton.Text = "Create";
+            this.CreateButton.UseVisualStyleBackColor = false;
+            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
+            this.CreateButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterKeyPressedCreateEvent);
             // 
             // Events
             // 
@@ -141,7 +141,7 @@
             this.tabPage1.Controls.Add(this.NozzleId);
             this.tabPage1.Controls.Add(this.ConfirmCreate);
             this.tabPage1.Controls.Add(this.Events);
-            this.tabPage1.Controls.Add(this.Create);
+            this.tabPage1.Controls.Add(this.CreateButton);
             this.tabPage1.Controls.Add(this.DatePicker);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label1);
@@ -321,7 +321,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Create;
+        private System.Windows.Forms.Button CreateButton;
         public System.Windows.Forms.ComboBox Events;
         private System.Windows.Forms.DateTimePicker DatePicker;
         private System.Windows.Forms.Label label1;

@@ -14,27 +14,30 @@ namespace WindowsFormsApplication4
     class Methods
     {
         Form form = new Form();
+        //method to create an event in the seleced database
         public void EventLog(string EventName, int Nozzle_Id, DateTime DateAndTime)
         {
-
+            //string to connect to the right database
             string conStr = "Data Source=.;Initial Catalog=NozzleTest;Integrated Security=True";
             using (var Con = new SqlConnection(conStr))
             {
                 Con.Open();
                 try
                 {
+                    //sending the data to the database
                     var sendCom = $"insert into  EventLog(Nozzle_Id, EventName, DateOfEvent) values  ('{Nozzle_Id}', '{EventName}', '{DateAndTime}')";
                     var Command = new SqlCommand(sendCom, Con);
                     var result = Command.ExecuteScalar();
                 }
                 catch (Exception e1)
                 {
+
                 }
 
 
             }
         }
-
+        //method to get events from the database
         public string RetrieveEvents(int NozzleId, bool ShowNoEvents)
         {
             Form1 inputs = new Form1();
@@ -50,10 +53,12 @@ namespace WindowsFormsApplication4
                     var Command = new SqlCommand(sendCom, Con);
                     var reader = Command.ExecuteReader();
 
+                    //if there is data for that specific nozzle 
                     if (reader.HasRows)
                     {
                         rowAsString += ("Event Name       Date of event \n");
 
+                        //while there is data to read; add the data to a string 
                         while (reader.Read())
                         {
                             if (reader.GetValue(0).ToString() == "Line")
@@ -65,6 +70,7 @@ namespace WindowsFormsApplication4
                         }
 
                     }
+                    //if there is data and you want to show this text
                     else if (ShowNoEvents)
                         rowAsString += ($"No events found for Nozzle: {NozzleId} \n");
                     else
@@ -73,10 +79,14 @@ namespace WindowsFormsApplication4
                 }
                 catch (Exception e)
                 {
+                    Con.Close();
                     return e.ToString();
                 }
+                Con.Close();
+                return rowAsString;
             }
-            return rowAsString;
+            
+            
 
         }
 
